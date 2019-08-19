@@ -1,4 +1,4 @@
-package com.hq.nettySec;
+package com.hq.nettyTwo;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

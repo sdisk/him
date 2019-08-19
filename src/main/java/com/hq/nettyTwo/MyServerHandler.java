@@ -1,7 +1,5 @@
-package com.hq.nettySec;
+package com.hq.nettyTwo;
 
-import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 

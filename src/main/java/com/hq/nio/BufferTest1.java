@@ -1,6 +1,7 @@
 package com.hq.nio;
 
 import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
 
 /**
  * @program: him

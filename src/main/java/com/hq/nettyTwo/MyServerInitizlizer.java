@@ -1,4 +1,4 @@
-package com.hq.nettySec;
+package com.hq.nettyTwo;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;

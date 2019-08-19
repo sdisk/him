@@ -1,6 +1,6 @@
 package com.hq.nettyFou;
 
-import com.hq.nettySec.MyClientHandler;
+import com.hq.nettyTwo.MyClientHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;

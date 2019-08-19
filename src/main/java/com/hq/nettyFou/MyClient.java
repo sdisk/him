@@ -1,6 +1,6 @@
 package com.hq.nettyFou;
 
-import com.hq.nettySec.MyClientInitizlizer;
+import com.hq.nettyTwo.MyClientInitizlizer;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
