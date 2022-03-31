@@ -1,0 +1,38 @@
+package com.hq.webSocket;
+
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
+import io.netty.channel.group.ChannelGroup;
+import io.netty.handler.codec.http.HttpObjectAggregator;
+import io.netty.handler.codec.http.HttpServerCodec;
+import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
+import io.netty.handler.stream.ChunkedWriteHandler;
+
+/**
+ * @program: him
+ * @description:
+ * @author: Mr.Huang
+ * @create: 2019-08-14 10:51
+ **/
+public class ChatServerInitializer extends ChannelInitializer<Channel> {
+
+    private final ChannelGroup group;
+
+    public ChatServerInitializer(ChannelGroup group) {
+        this.group = group;
+    }
+
+    @Override
+    protected void initChannel(Channel ch) throws Exception {
+        ChannelPipeline pipeline = ch.pipeline();
+        pipeline.addLast(new HttpServerCodec());
+        //写入一个文件的内容
+        pipeline.addLast(new ChunkedWriteHandler());
+        pipeline.addLast(new HttpObjectAggregator(64*1024));
+        //处理 FullHttpRequest（那些不发送到/ws URI 的请求）
+        pipeline.addLast(new HttpRequestHandler("/ws"));
+        pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
+        pipeline.addLast(new TextWebSocketFrameHandler(group));
+    }
+}

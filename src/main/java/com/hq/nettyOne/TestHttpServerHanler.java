@@ -1,4 +1,4 @@
-package com.hq.netty;
+package com.hq.nettyOne;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -42,4 +42,49 @@ public class TestHttpServerHanler extends SimpleChannelInboundHandler<HttpObject
             channelHandlerContext.writeAndFlush(response);
         }
     }
+
+    @Override
+    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channelRegistered");
+        super.channelRegistered(ctx);
+    }
+
+    @Override
+    public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channelUnregistered");
+        super.channelUnregistered(ctx);
+    }
+
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channelActive");
+        super.channelActive(ctx);
+    }
+
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channelInactive");
+        super.channelInactive(ctx);
+    }
+
+    @Override
+    public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("handlerAdded");
+        super.handlerAdded(ctx);
+    }
+
+    @Override
+    public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("handlerRemoved");
+        super.handlerRemoved(ctx);
+    }
+    /**
+     *  生命周期
+     *  handlerAdded
+     *  channelRegistered
+     *  channelActive
+     *  channelInactive
+     *  channelUnregistered
+     *  handlerRemoved
+     */
 }
